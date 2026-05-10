@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyce Cheung — MEDD 8895 Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0f;
+    --paper: #f5f0e8;
+    --cream: #ede8d8;
+    --teal: #1a6b6b;
+    --teal-light: #2a9494;
+    --gold: #c8973a;
+    --muted: #6b6457;
+    --border: #d4cfc0;
+    --card-bg: #faf7f0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; position: relative; overflow: hidden; background: var(--ink); }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(26,107,107,0.35) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(200,151,58,0.15) 0%, transparent 50%), var(--ink); }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(245,240,232,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(245,240,232,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-nav { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 2rem 4rem; border-bottom: 1px solid rgba(245,240,232,0.1); }
+  .hero-nav .logo { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: rgba(245,240,232,0.5); letter-spacing: 0.15em; text-transform: uppercase; }
+  .hero-nav .course-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--teal-light); letter-spacing: 0.1em; border: 1px solid var(--teal-light); padding: 0.3rem 0.8rem; border-radius: 2px; }
+  .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 4rem; max-width: 900px; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-eyebrow::after { content: ''; display: block; width: 60px; height: 1px; background: var(--gold); opacity: 0.6; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; color: var(--paper); line-height: 1.0; letter-spacing: -0.02em; animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-name em { font-style: italic; color: var(--teal-light); }
+  .hero-subtitle { font-size: 1.1rem; color: rgba(245,240,232,0.55); font-weight: 300; margin-top: 1.5rem; max-width: 480px; line-height: 1.7; animation: fadeUp 0.6s ease 0.35s both; }
+  .hero-meta { position: relative; z-index: 2; padding: 2rem 4rem; border-top: 1px solid rgba(245,240,232,0.1); display: flex; gap: 3rem; align-items: center; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.5s both; }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .hero-meta-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: rgba(245,240,232,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
+  .hero-meta-value { font-size: 0.9rem; color: rgba(245,240,232,0.8); font-weight: 500; }
+  .scroll-hint { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: rgba(245,240,232,0.3); letter-spacing: 0.1em; margin-left: auto; animation: bounce 2s infinite; }
+
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+  /* TIMELINE */
+  .timeline-section { background: var(--cream); padding: 5rem 4rem; border-bottom: 1px solid var(--border); }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--teal); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; color: var(--ink); margin-bottom: 3rem; line-height: 1.2; }
+  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); position: relative; }
+  .timeline::before { content:''; position:absolute; top:28px; left:0; right:0; height:1px; background:var(--border); }
+  .timeline-item { position: relative; padding: 3.5rem 1.5rem 0; }
+  .timeline-item:first-child { padding-left: 0; }
+  .timeline-dot { position:absolute; top:18px; left:50%; transform:translateX(-50%); width:20px; height:20px; border-radius:50%; background:var(--teal); border:3px solid var(--cream); z-index:1; transition:transform 0.2s, background 0.2s; }
+  .timeline-item:first-child .timeline-dot { left:10px; }
+  .timeline-item:hover .timeline-dot { transform:translateX(-50%) scale(1.3); background:var(--gold); }
+  .timeline-item:first-child:hover .timeline-dot { transform:scale(1.3); }
+  .timeline-pset { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--teal); letter-spacing:0.1em; margin-bottom:0.4rem; }
+  .timeline-title { font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem; line-height:1.3; }
+  .timeline-growth { font-size:0.8rem; color:var(--muted); line-height:1.5; }
+
+  .timeline-intro { font-size:0.9rem; color:var(--muted); line-height:1.7; max-width:680px; margin-bottom:2.5rem; }
+  .timeline-intro strong { color:var(--ink); font-weight:600; }
+  .cs-badge-inline { font-family:'DM Mono',monospace; font-size:0.72rem; background:rgba(26,107,107,0.12); color:var(--teal); padding:0.1rem 0.5rem; border-radius:2px; border:1px solid rgba(26,107,107,0.2); letter-spacing:0.05em; }
+
+  .cs-badge {
+    margin-top:0.9rem;
+    padding:0.6rem 0.75rem;
+    background:rgba(26,107,107,0.08);
+    border:1px solid rgba(26,107,107,0.2);
+    border-radius:3px;
+    font-family:'DM Mono',monospace;
+    font-size:0.62rem;
+    color:var(--teal);
+    line-height:1.6;
+    letter-spacing:0.03em;
+  }
+  .cs-badge em { font-style:normal; color:var(--muted); display:block; margin-top:0.2rem; font-family:'DM Sans',sans-serif; font-size:0.75rem; letter-spacing:0; }
+  .cs-badge--muted { background:rgba(107,100,87,0.06); border-color:rgba(107,100,87,0.15); color:var(--muted); }
+  .cs-badge--muted em { color:var(--muted); opacity:0.7; }
+
+  /* PSETS */
+  .psets-section { padding: 5rem 4rem; max-width: 1400px; margin: 0 auto; }
+  .pset-block { margin-bottom: 6rem; opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .pset-block.visible { opacity:1; transform:translateY(0); }
+  .pset-header { display:flex; align-items:baseline; gap:1.5rem; margin-bottom:0.8rem; padding-bottom:1rem; border-bottom:2px solid var(--ink); }
+  .pset-number { font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:900; color:var(--border); line-height:1; flex-shrink:0; }
+  .pset-tag { font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--teal); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.3rem; }
+  .pset-title { font-family:'Playfair Display',serif; font-size:clamp(1.3rem,2.5vw,1.9rem); font-weight:700; color:var(--ink); line-height:1.2; }
+  .pset-desc { font-size:0.9rem; color:var(--muted); line-height:1.6; margin-top:0.5rem; max-width:600px; }
+
+  /* THEN/NOW GRID */
+  .then-now { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem; }
+  .then-now.single { grid-template-columns:1fr; max-width:500px; }
+
+  .version-card { background:var(--card-bg); border:1px solid var(--border); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; transition:box-shadow 0.2s, transform 0.2s; }
+  .version-card:hover { box-shadow:0 8px 32px rgba(15,15,15,0.12); transform:translateY(-2px); }
+
+  .version-card-header { padding:1rem 1.2rem 0.8rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
+  .version-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; }
+  .then-card .version-label, .single-card .version-label { color:var(--muted); }
+  .now-card .version-label { color:var(--teal); }
+  .version-badge { font-family:'DM Mono',monospace; font-size:0.6rem; padding:0.2rem 0.6rem; border-radius:2px; letter-spacing:0.1em; text-transform:uppercase; }
+  .then-card .version-badge, .single-card .version-badge { background:var(--cream); color:var(--muted); border:1px solid var(--border); }
+  .now-card .version-badge { background:rgba(26,107,107,0.1); color:var(--teal); border:1px solid rgba(26,107,107,0.2); }
+
+  /* PDF PREVIEW — no iframes, just a nice clickable card */
+  .pdf-preview {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.4rem; padding: 2.8rem 2rem; min-height: 280px; flex: 1;
+    text-decoration: none; transition: background 0.18s;
+  }
+  .then-card .pdf-preview, .single-card .pdf-preview { background: #eee8dc; }
+  .now-card .pdf-preview { background: rgba(26,107,107,0.06); }
+  .then-card .pdf-preview:hover, .single-card .pdf-preview:hover { background: #e2dcd0; }
+  .now-card .pdf-preview:hover { background: rgba(26,107,107,0.12); }
+
+  /* Paper icon */
+  .pdf-icon { width:52px; height:66px; position:relative; }
+  .pdf-icon-body { width:100%; height:100%; border-radius:3px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:10px; box-shadow:2px 4px 10px rgba(0,0,0,0.1); }
+  .then-card .pdf-icon-body, .single-card .pdf-icon-body { background:#fff; border:1.5px solid #ccc; }
+  .now-card .pdf-icon-body { background:rgba(26,107,107,0.08); border:1.5px solid rgba(26,107,107,0.3); }
+  .pdf-icon-fold { position:absolute; top:0; right:0; width:16px; height:16px; }
+  .pdf-icon-fold::before { content:''; position:absolute; inset:0; }
+  .then-card .pdf-icon-fold::before, .single-card .pdf-icon-fold::before { background:linear-gradient(135deg, #fff 50%, #d0ccc0 50%); border-left:1px solid #ccc; border-bottom:1px solid #ccc; }
+  .now-card .pdf-icon-fold::before { background:linear-gradient(135deg, rgba(26,107,107,0.08) 50%, rgba(26,107,107,0.2) 50%); border-left:1px solid rgba(26,107,107,0.3); border-bottom:1px solid rgba(26,107,107,0.3); }
+  .pdf-lines { padding:0 8px; display:flex; flex-direction:column; gap:5px; }
+  .pdf-line { height:2px; border-radius:1px; }
+  .then-card .pdf-line, .single-card .pdf-line { background:#d8d4cc; }
+  .now-card .pdf-line { background:rgba(26,107,107,0.2); }
+  .pdf-line:nth-child(1){width:100%} .pdf-line:nth-child(2){width:70%} .pdf-line:nth-child(3){width:85%} .pdf-line:nth-child(4){width:55%}
+
+  .pdf-info { text-align:center; display:flex; flex-direction:column; gap:0.3rem; }
+  .pdf-name { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; }
+  .then-card .pdf-name, .single-card .pdf-name { color:var(--muted); }
+  .now-card .pdf-name { color:var(--teal); }
+  .pdf-hint { font-size:0.75rem; color:var(--muted); opacity:0.65; }
+
+  .open-pill { display:inline-flex; align-items:center; gap:0.45rem; font-family:'DM Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.55rem 1.4rem; border-radius:2px; text-decoration:none; font-weight:500; transition:opacity 0.15s, transform 0.15s; }
+  .open-pill:hover { opacity:0.85; transform:translateY(-1px); }
+  .then-card .open-pill, .single-card .open-pill { background:var(--ink); color:var(--paper); }
+  .now-card .open-pill { background:var(--teal); color:#fff; }
+
+  /* CALLOUT */
+  .revision-callout { margin-top:1rem; padding:1rem 1.2rem; background:rgba(26,107,107,0.06); border-left:3px solid var(--teal); border-radius:0 4px 4px 0; }
+  .revision-callout-label { font-family:'DM Mono',monospace; font-size:0.62rem; color:var(--teal); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.4rem; }
+  .revision-callout-text { font-size:0.85rem; color:var(--ink); line-height:1.6; }
+
+  /* GROWTH */
+  .growth-section { background:var(--ink); padding:5rem 4rem; }
+  .growth-section .section-label { color:var(--gold); }
+  .growth-section .section-title { color:var(--paper); }
+  .growth-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5px; background:rgba(245,240,232,0.1); border:1px solid rgba(245,240,232,0.1); margin-top:2rem; }
+  .growth-card { background:var(--ink); padding:2rem; transition:background 0.2s; }
+  .growth-card:hover { background:rgba(26,107,107,0.15); }
+  .growth-num { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:900; color:rgba(245,240,232,0.08); line-height:1; margin-bottom:0.5rem; }
+  .growth-theme { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--paper); margin-bottom:0.6rem; line-height:1.3; }
+  .growth-desc { font-size:0.82rem; color:rgba(245,240,232,0.5); line-height:1.6; }
+
+  .section-divider { border:none; border-top:1px solid var(--border); margin:0 4rem; }
+  footer { background:var(--cream); border-top:1px solid var(--border); padding:2rem 4rem; display:flex; justify-content:space-between; align-items:center; }
+  .foot-name { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--ink); }
+  .foot-meta { font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--muted); letter-spacing:0.08em; }
+
+  @media(max-width:768px){
+    .hero-nav,.hero-content,.hero-meta{padding:1.5rem}
+    .timeline-section,.psets-section,.growth-section{padding:3rem 1.5rem}
+    .then-now,.then-now.single{grid-template-columns:1fr;max-width:100%}
+    footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem}
+    .section-divider{margin:0 1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <nav class="hero-nav">
+    <span class="logo">MEDD 8895 · Final Portfolio</span>
+    <span class="course-tag">HKU Faculty of Education</span>
+  </nav>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Student Portfolio · 2025–2026</div>
+    <h1 class="hero-name">Cheung<br>Chung Wah<br><em>Joyce</em></h1>
+    <p class="hero-subtitle">A semester of designing, iterating, and growing as a STEM educator. Each PSet shows the original work alongside the annotated revision — a record of thinking made visible.</p>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="hero-meta-label">Student ID</span><span class="hero-meta-value">3036508486</span></div>
+    <div class="hero-meta-item"><span class="hero-meta-label">Course</span><span class="hero-meta-value">MEDD 8895 · STEM Across the Curriculum</span></div>
+    <div class="hero-meta-item"><span class="hero-meta-label">PSets</span><span class="hero-meta-value">1 · 3 · 4 · 6 · 8</span></div>
+    <div class="scroll-hint">Scroll to explore ↓</div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="section-label">Semester Arc</div>
+  <h2 class="section-title">How My Thinking Evolved</h2>
+  <p class="timeline-intro">Each annotated PSet ends with a <strong>Cross-Semester Connection</strong> page — a written reflection tracing how the ideas in that assignment connect to earlier and later work. Open any <span class="cs-badge-inline">annotated</span> version below to read the full reflection.</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-pset">PSet 1</div>
+      <div class="timeline-title">Moon Survival Expansion</div>
+      <div class="timeline-growth">Adapting an existing activity for P4 — first encounter with scaffolding and cognitive load theory.</div>
+      <div class="cs-badge">Cross-Semester Connection →<br><em>From intuition to theory · Affordance thinking · AI as pedagogy</em></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-pset">PSet 3</div>
+      <div class="timeline-title">Behind the Wall</div>
+      <div class="timeline-growth">Staged evidence release and NOS theory — learning to justify with theory, not intuition.</div>
+      <div class="cs-badge">Cross-Semester Connection →<br><em>Static to dynamic design pattern · Accountability across PSets · Annotation growth</em></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-pset">PSet 4</div>
+      <div class="timeline-title">Future Scanner</div>
+      <div class="timeline-growth">First original AI-integrated learning tool — designing prompts, not just evaluating them.</div>
+      <div class="cs-badge cs-badge--muted">Reflection embedded in<br>PSet 1 &amp; PSet 3 annotated docs</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-pset">PSet 6</div>
+      <div class="timeline-title">YouTube Video Editor Challenge</div>
+      <div class="timeline-growth">Unplugged computing meets productive failure — context as curriculum.</div>
+      <div class="cs-badge">Cross-Semester Connection →<br><em>Productive struggle thread · Embodied learning · Static to dynamic design</em></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-pset">PSet 8</div>
+      <div class="timeline-title">Who Are We? — Astrosociology</div>
+      <div class="timeline-growth">Self-introduction to aliens — exploring identity, culture, and what it means to be human.</div>
+      <div class="cs-badge cs-badge--muted">Final original creation —<br>no prior feedback cycle</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- PSETS -->
+<section class="psets-section">
+  <div class="section-label">The Work</div>
+  <h2 class="section-title">Then &amp; Now</h2>
+
+  <!-- PSET 1 -->
+  <div class="pset-block">
+    <div class="pset-header">
+      <div class="pset-number">01</div>
+      <div class="pset-info">
+        <div class="pset-tag">Activity Adaptation · Primary 4 · Moon Survival</div>
+        <h3 class="pset-title">Surviving on the Moon — Expansion</h3>
+        <p class="pset-desc">Adapting the Moon Survival game for P4 students in Hong Kong: simplified language, metric units, physical ranking ladder, and a bilingual AI bot.</p>
+      </div>
+    </div>
+    <div class="revision-callout">
+      <div class="revision-callout-label">Key Revisions</div>
+      <div class="revision-callout-text">Crisis prompts changed from multiple-choice to open-ended inventory reasoning · Affordance discussion added to Crisis 2 (Gibson, 1977) · AI analysis deepened across 4 dimensions: scientific accuracy, logical consistency, pedagogical fit, emotional responsiveness</div>
+    </div>
+    <div class="then-now">
+      <div class="version-card then-card">
+        <div class="version-card-header"><span class="version-label">Original Submission</span><span class="version-badge">Then</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/1ZyIU5eU6lLe73BxTcteR2Fw9Voq31xSC/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 1 — Original</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+      <div class="version-card now-card">
+        <div class="version-card-header"><span class="version-label">Annotated Revision</span><span class="version-badge">Now</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/115vQ_RilIwoJZAw6lrRimMhlhUSI_rx0/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 1 — Annotated</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PSET 3 -->
+  <div class="pset-block">
+    <div class="pset-header">
+      <div class="pset-number">03</div>
+      <div class="pset-info">
+        <div class="pset-tag">Bookbits Activity · Grade 8 · Nature of Science</div>
+        <h3 class="pset-title">Behind the Wall — A Scientific Mystery</h3>
+        <p class="pset-desc">Students discover a sealed evidence box hidden in their school wall and must determine what system the fragments describe — across three rounds of staged evidence release.</p>
+      </div>
+    </div>
+    <div class="revision-callout">
+      <div class="revision-callout-label">Key Revisions</div>
+      <div class="revision-callout-text">NOS framework (Lederman, 2007) added as third theoretical pillar · Commitment Card mechanic for epistemic stakes · Explanation Quality Rubric (3 criteria) · Archive Board Hearing replaces conventional symposium · Group size specified (4–5 students)</div>
+    </div>
+    <div class="then-now">
+      <div class="version-card then-card">
+        <div class="version-card-header"><span class="version-label">Original Submission</span><span class="version-badge">Then</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/13THuPlVedP8Z0zu63NPjKR3O0RrL3CMD/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 3 — Original</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+      <div class="version-card now-card">
+        <div class="version-card-header"><span class="version-label">Annotated Revision</span><span class="version-badge">Now</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/1bzBuESBzD2eNmXN8H2iirtcF7iz-vINT/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 3 — Annotated</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PSET 4 -->
+  <div class="pset-block">
+    <div class="pset-header">
+      <div class="pset-number">04</div>
+      <div class="pset-info">
+        <div class="pset-tag">AI Tool Design · Futures Thinking · Web Application</div>
+        <h3 class="pset-title">Future Scanner — Explore Tomorrow with Insight</h3>
+        <p class="pset-desc">An original web-based application where students scan future trend cards, discuss with AI, and generate their own personalised 2036 newspaper headline and journey roadmap.</p>
+      </div>
+    </div>
+    <div class="revision-callout">
+      <div class="revision-callout-label">Note</div>
+      <div class="revision-callout-text">PSet 4 is an original design with 7 integrated AI functions. No annotated version — cross-semester reflections are embedded in the annotated PSet 1 and PSet 3 documents.</div>
+    </div>
+    <div class="then-now single">
+      <div class="version-card single-card">
+        <div class="version-card-header"><span class="version-label">Original Submission</span><span class="version-badge">Original</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/184g2N9ilv3bA7JWD5NbwpV860kCOXIH2/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 4 — Future Scanner</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PSET 6 -->
+  <div class="pset-block">
+    <div class="pset-header">
+      <div class="pset-number">06</div>
+      <div class="pset-info">
+        <div class="pset-tag">Unplugged Activity · Secondary 1 · Algorithms</div>
+        <h3 class="pset-title">YouTube Video Editor Challenge</h3>
+        <p class="pset-desc">Students sort clip cards as professional video editors, experiencing sorting algorithms and diseconomies of scale hands-on — entirely screen-free.</p>
+      </div>
+    </div>
+    <div class="revision-callout">
+      <div class="revision-callout-label">Key Revisions</div>
+      <div class="revision-callout-text">Class size and group configuration specified (3–4 per group) · Specific debriefing questions added after Final Sprint · Post-activity debrief script introducing "diseconomy of scale" through embodied student experience</div>
+    </div>
+    <div class="then-now">
+      <div class="version-card then-card">
+        <div class="version-card-header"><span class="version-label">Original Submission</span><span class="version-badge">Then</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/1rrFniWX2vD_4q0r3hVESlVduXZvm3t4o/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 6 — Original</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+      <div class="version-card now-card">
+        <div class="version-card-header"><span class="version-label">Annotated Revision</span><span class="version-badge">Now</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/1aS7xbgF6hjp5P1RNJQt98LzxwtMvYE9l/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 6 — Annotated</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PSET 8 -->
+  <div class="pset-block">
+    <div class="pset-header">
+      <div class="pset-number">08</div>
+      <div class="pset-info">
+        <div class="pset-tag">Astrosociology · Session 1 · Identity &amp; Communication</div>
+        <h3 class="pset-title">Who Are We? — Self-Introduction to Aliens</h3>
+        <p class="pset-desc">Designing an Astrosociology lesson plan for Session 1: students explore what it means to be human by imagining how to introduce themselves to an alien civilisation — examining identity, culture, language, and what we choose to represent our species.</p>
+      </div>
+    </div>
+    <div class="revision-callout">
+      <div class="revision-callout-label">Note</div>
+      <div class="revision-callout-text">PSet 8 is the final original creation, submitted directly as part of the portfolio. No prior feedback cycle — designed to be innovative and surprising from the start.</div>
+    </div>
+    <div class="then-now single">
+      <div class="version-card single-card">
+        <div class="version-card-header"><span class="version-label">Final Submission</span><span class="version-badge">Original</span></div>
+        <a class="pdf-preview" href="https://drive.google.com/file/d/1ciKVBlWgw3FkCw30KBACxjhpk2enpnFr/view" target="_blank">
+          <div class="pdf-icon"><div class="pdf-icon-body"><div class="pdf-icon-fold"></div><div class="pdf-lines"><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div><div class="pdf-line"></div></div></div></div>
+          <div class="pdf-info"><span class="pdf-name">PSet 8 — Who Are We?</span><span class="pdf-hint">Click to open in Google Drive</span></div>
+          <span class="open-pill">Open PDF ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- GROWTH THEMES -->
+<section class="growth-section">
+  <div class="section-label">Cross-Semester Reflection</div>
+  <h2 class="section-title">Five Themes of Growth</h2>
+  <div class="growth-grid">
+    <div class="growth-card"><div class="growth-num">01</div><div class="growth-theme">From Intuition to Theory</div><div class="growth-desc">I began designing by instinct. By PSet 6, every decision could be named and justified — cognitive load, productive failure, NOS, affordance — design choices backed by theory.</div></div>
+    <div class="growth-card"><div class="growth-num">02</div><div class="growth-theme">Affordance Thinking</div><div class="growth-desc">One concept changed how I see all learning materials. Nine items can have far more than nine uses. I now ask: what affordances does each material have beyond its intended purpose?</div></div>
+    <div class="growth-card"><div class="growth-num">03</div><div class="growth-theme">Accountability and Stakes</div><div class="growth-desc">Removing multiple-choice options (PSet 1), Commitment Cards (PSet 3), open-ended AI prompts (PSet 4) — the same principle throughout: learning deepens with real stakes.</div></div>
+    <div class="growth-card"><div class="growth-num">04</div><div class="growth-theme">Context as Curriculum</div><div class="growth-desc">From Moon survival to YouTube editing to alien introductions — the best contexts are Trojan horses: familiar enough to engage, strange enough to teach. The learning hides inside the story.</div></div>
+    <div class="growth-card"><div class="growth-num">05</div><div class="growth-theme">From Adapting to Originating</div><div class="growth-desc">PSets 1 and 3 adapted existing activities. PSets 4, 6, and 8 are wholly original. The trajectory is from improving other people's ideas to generating my own.</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-name">Cheung Chung Wah Joyce</div>
+  <div class="foot-meta">MEDD 8895 · 3036508486 · HKU Faculty of Education · 2025–2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.pset-block').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
