@@ -170,6 +170,42 @@
     footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem}
     .section-divider{margin:0 1.5rem}
   }
+
+  /* REFLECTION HEADER */
+  .reflection-header {
+    margin-top: 1.2rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 3px 3px 0 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(26,107,107,0.1);
+    border: 1px solid rgba(26,107,107,0.2);
+    border-bottom: none;
+    font-weight: 500;
+  }
+
+  .reflection-body {
+    display: block; margin-top: 0;
+    border: 1px solid rgba(26,107,107,0.2);
+    border-radius: 3px;
+    background: rgba(26,107,107,0.03);
+    overflow: hidden;
+  }
+
+  @keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+
+  .reflection-inner { padding: 1.8rem 1.5rem; }
+
+  .reflection-section { margin-bottom: 1.4rem; }
+  .reflection-section:last-child { margin-bottom: 0; }
+  .reflection-section-title {
+    font-family: 'Playfair Display', serif; font-size: 0.95rem;
+    font-weight: 700; color: var(--teal); margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem; border-bottom: 1px solid rgba(26,107,107,0.15);
+  }
+  .reflection-section-body { font-size: 0.87rem; color: var(--ink); line-height: 1.75; }
+
 </style>
 </head>
 <body>
@@ -239,6 +275,19 @@
   </div>
 </section>
 
+<!-- GROWTH THEMES -->
+<section class="growth-section">
+  <div class="section-label">Cross-Semester Reflection</div>
+  <h2 class="section-title">Five Themes of Growth</h2>
+  <div class="growth-grid">
+    <div class="growth-card"><div class="growth-num">01</div><div class="growth-theme">From Intuition to Theory</div><div class="growth-desc">I began designing by instinct. By PSet 6, every decision could be named and justified — cognitive load, productive failure, NOS, affordance — design choices backed by theory.</div></div>
+    <div class="growth-card"><div class="growth-num">02</div><div class="growth-theme">Affordance Thinking</div><div class="growth-desc">One concept changed how I see all learning materials. Nine items can have far more than nine uses. I now ask: what affordances does each material have beyond its intended purpose?</div></div>
+    <div class="growth-card"><div class="growth-num">03</div><div class="growth-theme">Accountability and Stakes</div><div class="growth-desc">Removing multiple-choice options (PSet 1), Commitment Cards (PSet 3), open-ended AI prompts (PSet 4) — the same principle throughout: learning deepens with real stakes.</div></div>
+    <div class="growth-card"><div class="growth-num">04</div><div class="growth-theme">Context as Curriculum</div><div class="growth-desc">From Moon survival to YouTube editing to alien introductions — the best contexts are Trojan horses: familiar enough to engage, strange enough to teach. The learning hides inside the story.</div></div>
+    <div class="growth-card"><div class="growth-num">05</div><div class="growth-theme">From Adapting to Originating</div><div class="growth-desc">PSets 1 and 3 adapted existing activities. PSets 4, 6, and 8 are wholly original. The trajectory is from improving other people's ideas to generating my own.</div></div>
+  </div>
+</section>
+
 <hr class="section-divider">
 
 <!-- PSETS -->
@@ -278,6 +327,32 @@
         </a>
       </div>
     </div>
+  
+    <div class="reflection-header">Cross-Semester Reflection</div>
+    <div class="reflection-body">
+      <div class="reflection-inner">
+        <div class="reflection-section">
+          <div class="reflection-section-title">1. From Practical Adaptation to Pedagogical Justification</div>
+          <div class="reflection-section-body">When I first designed the P4 Moon Survival adaptation, my rationale focused mainly on practicality: simpler language, metric units, picture cards. Later in the course, after studying cognitive load theory and Vygotsky's social constructivism, I returned to the same decisions and realised they had theoretical grounding I had not yet articulated. The crash-landing narrative reduces extraneous cognitive load. The group ranking task is a zone of proximal development exercise. Revision allowed me to name these principles properly.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">2. Affordance Thinking: A Concept That Transformed My Design Lens</div>
+          <div class="reflection-section-body">The concept of affordance (Gibson, 1977) was not in my vocabulary when I first wrote PSet 1. After encountering it later in the course, I immediately saw that Crisis 2 (The Hidden Skylight) was the perfect place to introduce it. The parachute that cannot fly on the Moon becomes a slide, a cushion, and a wrapper — an object with multiple affordances beyond its intended use. This has changed how I think about STEM materials design broadly.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">3. AI Evaluation: From Surface Observation to Multi-Dimensional Analysis</div>
+          <div class="reflection-section-body">My original AI evaluation noted surface-level issues: text too long, lacks empathy. After the course deepened my understanding of pedagogical fit and cognitive load, I returned to the same chatbot logs and found issues I had previously missed — scientific inaccuracies the bot failed to catch, logical contradictions across turns, and a Socratic style better suited to secondary than P4 students. I now evaluate educational technology as a teacher-designer, not just a user.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">4. Creativity and Stakes: Lessons Carried Into PSet 3</div>
+          <div class="reflection-section-body">The teacher's feedback that my scenarios were "not creative enough" and that multiple-choice limited imagination stayed with me as I designed PSet 3. In Behind the Wall, I addressed the same issue at a higher level: the Commitment Card creates genuine stakes, the Archive Board Hearing replaces a conventional symposium, and the three-round evidence release creates escalating pressure. The thread connecting both PSets is accountability: learning deepens when students have real stakes in their decisions (Berland and Reiser, 2009).</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">5. Growth as a Future STEM Educator: Thinking With Theory</div>
+          <div class="reflection-section-body">At the start of this course, I designed activities by intuition. By the end, I design with theory: I can name the pedagogical principles behind my choices (cognitive load, affordance, NOS, conceptual change, social constructivism) and revise my earlier work through new theoretical lenses. The portfolio as a whole is evidence not just of what I designed, but of how my thinking about design has changed.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- PSET 3 -->
@@ -312,6 +387,32 @@
         </a>
       </div>
     </div>
+  
+    <div class="reflection-header">Cross-Semester Reflection</div>
+    <div class="reflection-body">
+      <div class="reflection-inner">
+        <div class="reflection-section">
+          <div class="reflection-section-title">1. From PSet 1 to PSet 3: Scaffolding and Cognitive Load</div>
+          <div class="reflection-section-body">In PSet 1, I adapted the activity for P4 students by breaking the ranking task into a categorisation step first, reducing cognitive overload. This same principle of staged scaffolding evolved into the three-round evidence release structure in PSet 3. By the time I designed Behind the Wall, I had a clearer understanding of how to sequence challenge so that students are supported early but pushed into genuine cognitive conflict by Round 3.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">2. Deepening Theoretical Grounding: Adding NOS to My Framework</div>
+          <div class="reflection-section-body">When I wrote PSet 3 originally, my theoretical framework included sociocultural theory and conceptual change theory. After encountering the Nature of Science (NOS) framework later in the course (Lederman, 2007), I realised that NOS provides a more precise vocabulary for what Behind the Wall is actually doing: enacting tentativeness, theory-ladenness, and the social negotiation of knowledge. I began the course seeing pedagogy in terms of engagement strategies and ended it thinking in terms of epistemic practices.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">3. From Describing to Justifying: Growth in Annotation Practice</div>
+          <div class="reflection-section-body">The teacher's feedback on PSet 3 noted that my annotations described what was changed without explaining the pedagogical why. Looking back at PSet 1, I notice the same pattern. In my revised annotations across both PSets, I now follow the format: WHAT changed + WHY it matters pedagogically + THEORY link. This shift reflects my growth as a designer who thinks with theory, not just from experience.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">4. Accountability and Stakes: A Thread Across Both PSets</div>
+          <div class="reflection-section-body">In PSet 1, I removed multiple-choice crisis options and required open-ended inventory reasoning, creating genuine stakes for students' decisions. In PSet 3, the Commitment Card and Revision Record mechanic serves the same purpose at a higher level: students must publicly commit to a hypothesis and explicitly justify any revision. Both changes reflect the same principle: learning deepens when students have real accountability for their claims (Berland and Reiser, 2009).</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">5. Creativity and Boldness: Pushing Beyond Conventional Formats</div>
+          <div class="reflection-section-body">The teacher's feedback that the symposium format was conventional made me reflect on PSet 1 too. Both assignments defaulted to familiar formats initially. The Archive Board Hearing redesign in PSet 3 and the two-item twist mechanic in PSet 1 both push toward more creative territory. This connects to a broader course lesson: innovative pedagogy is not just about content but about the structure of participation itself.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- PSET 4 -->
@@ -336,6 +437,32 @@
           <div class="pdf-info"><span class="pdf-name">PSet 4 — Future Scanner</span><span class="pdf-hint">Click to open in Google Drive</span></div>
           <span class="open-pill">Open PDF ↗</span>
         </a>
+      </div>
+    </div>
+  
+    <div class="reflection-header">Cross-Semester Reflection</div>
+    <div class="reflection-body">
+      <div class="reflection-inner">
+        <div class="reflection-section">
+          <div class="reflection-section-title">1. From Activity Adaptation to Designing Original Learning Experiences</div>
+          <div class="reflection-section-body">PSet 1 and PSet 3 were both adaptations of existing activities. PSet 4 (Future Scanner) represents a different challenge: designing an original, multi-step, AI-integrated learning experience from scratch. This required applying everything learned in the course simultaneously — learning objectives, scaffolding, pedagogical rationale, AI integration, and user experience design. The shift from adapting to originating is the clearest marker of growth across the semester.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">2. AI as Pedagogy, Not Just a Feature</div>
+          <div class="reflection-section-body">In PSet 1, I evaluated an existing AI chatbot and identified its surface-level weaknesses. By PSet 4, I was designing the AI prompts myself, thinking carefully about persona consistency, dynamic personalisation, Socratic questioning, and hallucination prevention. The course progression moved me from AI critic to AI designer — a meaningful shift in how I understand the relationship between artificial intelligence and pedagogy.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">3. Whole-Person Development: Making the Implicit Explicit</div>
+          <div class="reflection-section-body">The teacher feedback noted that PSet 4's connection between STEM and whole-person development was present but implicit. Looking back, I see the same pattern in PSet 1 (the Moon Survival activity had social-emotional learning potential I did not name) and PSet 3 (the collective sensemaking had epistemic development value I needed prompting to articulate). Across all PSets, my revision work has been about making implicit pedagogical value explicit.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">4. Futures Thinking as a Transferable Pedagogical Frame</div>
+          <div class="reflection-section-body">PSet 4 introduced futures thinking as a pedagogical approach I had not encountered before the course. The 2028 Global Intelligence Crisis shock event and the 2036 headline task are futures education techniques that could be applied to any STEM topic — what does the future of water look like? What would a 2036 news headline about AI in medicine say? I now see futures thinking as a transferable design tool I can use across all my teaching, not just for this assignment.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">5. Designing for Non-STEM Audiences: Accessibility as a Core Value</div>
+          <div class="reflection-section-body">The teacher praised Future Scanner for being highly inclusive, using plain language and relatable career categories. This did not happen by accident — it reflected lessons from PSet 1 (simplifying language for P4 students) and PSet 3 (calibrating cognitive challenge for Grade 8). By PSet 4, I had internalised accessibility as a core design value, not an afterthought. Designing for the non-STEM player first made the experience better for everyone.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -372,6 +499,32 @@
         </a>
       </div>
     </div>
+  
+    <div class="reflection-header">Cross-Semester Reflection</div>
+    <div class="reflection-body">
+      <div class="reflection-inner">
+        <div class="reflection-section">
+          <div class="reflection-section-title">1. From PSet 3 to PSet 6: Productive Struggle as a Design Principle</div>
+          <div class="reflection-section-body">In PSet 3, I designed staged evidence release to create cognitive conflict that drives conceptual change (Posner et al., 1982). PSet 6 applies the same principle through a different mechanism: productive failure (Kapur, 2008). In both cases, the core design decision is to withhold the answer and let students struggle first. By PSet 6, I had internalised this as a deliberate pedagogical choice rather than a gap in scaffolding.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">2. Unplugged Computing: Embodied Learning as a Cross-Subject Tool</div>
+          <div class="reflection-section-body">PSet 1 used physical card manipulation to make abstract space science tangible for P4 students. PSet 6 applies the same embodied learning principle to computational thinking: students physically sort 40 clip cards to experience sorting complexity in their hands and bodies, not just in their heads. Across the semester, I have developed a consistent design instinct: if the concept is abstract, make it physical.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">3. Static to Dynamic: A Design Pattern That Recurs Across PSets</div>
+          <div class="reflection-section-body">PSet 3's three-round evidence structure moved from a static single-building hypothesis to a dynamic city-scale interpretation. PSet 6's two-part structure moves from static clip sorting to dynamic real-time integration. In both cases, the second activity changes one key variable while holding everything else constant, isolating the concept being taught. This is now a deliberate design pattern I apply consciously.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">4. Context as Curriculum: Making the Familiar Strange</div>
+          <div class="reflection-section-body">PSet 4 (Future Scanner) and PSet 6 both use familiar student contexts (YouTube, social media trends) as the entry point for unfamiliar concepts (futures thinking, algorithmic complexity). In PSet 6, students think they are doing video editing but are actually experiencing quadratic time complexity. Using a familiar context to engage students with unfamiliar concepts is one of the most transferable design strategies I have developed this semester.</div>
+        </div>
+        <div class="reflection-section">
+          <div class="reflection-section-title">5. Growth: From Adapting Activities to Designing Original Learning Experiences</div>
+          <div class="reflection-section-body">PSet 1 and PSet 3 adapted existing activities. PSet 4 and PSet 6 are original designs. Looking across all PSets, I can trace my growth from a teacher who improves other people's ideas to one who generates original learning experiences grounded in theory. PSet 6 demonstrates that I can design an activity that is theoretically grounded, creatively original, and pedagogically coherent simultaneously.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- PSET 8 -->
@@ -402,18 +555,7 @@
 
 </section>
 
-<!-- GROWTH THEMES -->
-<section class="growth-section">
-  <div class="section-label">Cross-Semester Reflection</div>
-  <h2 class="section-title">Five Themes of Growth</h2>
-  <div class="growth-grid">
-    <div class="growth-card"><div class="growth-num">01</div><div class="growth-theme">From Intuition to Theory</div><div class="growth-desc">I began designing by instinct. By PSet 6, every decision could be named and justified — cognitive load, productive failure, NOS, affordance — design choices backed by theory.</div></div>
-    <div class="growth-card"><div class="growth-num">02</div><div class="growth-theme">Affordance Thinking</div><div class="growth-desc">One concept changed how I see all learning materials. Nine items can have far more than nine uses. I now ask: what affordances does each material have beyond its intended purpose?</div></div>
-    <div class="growth-card"><div class="growth-num">03</div><div class="growth-theme">Accountability and Stakes</div><div class="growth-desc">Removing multiple-choice options (PSet 1), Commitment Cards (PSet 3), open-ended AI prompts (PSet 4) — the same principle throughout: learning deepens with real stakes.</div></div>
-    <div class="growth-card"><div class="growth-num">04</div><div class="growth-theme">Context as Curriculum</div><div class="growth-desc">From Moon survival to YouTube editing to alien introductions — the best contexts are Trojan horses: familiar enough to engage, strange enough to teach. The learning hides inside the story.</div></div>
-    <div class="growth-card"><div class="growth-num">05</div><div class="growth-theme">From Adapting to Originating</div><div class="growth-desc">PSets 1 and 3 adapted existing activities. PSets 4, 6, and 8 are wholly original. The trajectory is from improving other people's ideas to generating my own.</div></div>
-  </div>
-</section>
+
 
 <footer>
   <div class="foot-name">Cheung Chung Wah Joyce</div>
@@ -425,6 +567,7 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.pset-block').forEach(el => observer.observe(el));
+
 </script>
 </body>
 </html>
